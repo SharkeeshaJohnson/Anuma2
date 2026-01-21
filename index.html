@@ -165,9 +165,10 @@
         .header__inner {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             height: 80px;
             position: relative;
+            margin-left: -6%;
         }
 
         .header__left {
@@ -190,40 +191,54 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--color-text);
-            transition: opacity 0.4s var(--transition-smooth),
-                        transform 0.4s var(--transition-smooth);
-            opacity: 1;
-            transform: translateX(0);
         }
 
-        .header__logo-icon {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%) translateX(-10px);
-            opacity: 0;
-            height: 40px;
-            filter: brightness(0);
-            transition: opacity 0.4s var(--transition-smooth),
-                        transform 0.4s var(--transition-smooth);
-        }
-
-        /* Header scrolled state - Legora style */
+        /* Header scrolled state */
         .header.header--scrolled .header__main {
             border-bottom: 1px solid var(--color-text);
         }
 
-        .header.header--scrolled .header__logo-text {
-            opacity: 0;
-            transform: translateX(10px);
+        .header__blog-link {
+            position: absolute;
+            right: calc(-6% + 240px);
+            font-family: var(--font-family);
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--color-text);
+            transition: opacity 0.3s var(--transition-smooth);
         }
 
-        .header.header--scrolled .header__logo-icon {
-            opacity: 1;
-            transform: translateX(-50%);
+        .header__blog-link:hover {
+            opacity: 0.6;
         }
 
         .header__cta {
-            display: none;
+            position: absolute;
+            right: -6%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-family: var(--font-family);
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--color-text);
+            background: transparent;
+            border: 1px solid var(--color-text);
+            border-radius: 160px;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .header__cta:hover {
+            background: var(--color-text);
+            color: var(--color-white);
         }
 
         .header__nav {
@@ -585,7 +600,7 @@
 
         .feature-slide__inner {
             display: grid;
-            grid-template-columns: 3fr 2fr;
+            grid-template-columns: 57% 43%;
             gap: 0;
             align-items: center;
             width: 100%;
@@ -602,7 +617,7 @@
         }
 
         .feature-slide:nth-child(even) .feature-slide__inner {
-            grid-template-columns: 2fr 3fr;
+            grid-template-columns: 43% 57%;
         }
 
         .feature-slide:nth-child(even) .feature-slide__image {
@@ -827,24 +842,21 @@
 
         .footer__main {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            justify-content: space-between;
             padding-bottom: 52px;
+            margin-left: -6%;
+            margin-right: -6%;
             border-bottom: 1px solid rgba(250, 249, 247, 0.1);
         }
 
         .footer__columns {
             display: flex;
-            justify-content: center;
             gap: 52px;
-            margin-top: 32px;
         }
 
         .footer__brand {
             display: flex;
             flex-direction: column;
-            align-items: center;
             gap: 20px;
         }
 
@@ -865,7 +877,7 @@
         }
 
         .footer__logo-text {
-            font-size: 2.2rem;
+            font-size: 2.75rem;
             font-weight: 800;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -944,10 +956,8 @@
 
         .footer__bottom {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            gap: 13px;
             padding-top: 26px;
         }
 
@@ -1064,6 +1074,7 @@
 
             .header__inner {
                 height: 52px;
+                margin-left: 0;
             }
 
             .header__nav {
@@ -1082,13 +1093,9 @@
                 font-size: 1.75rem;
             }
 
-            .header__logo-icon {
-                height: 22px;
-            }
-
+            .header__blog-link,
             .header__cta {
-                margin-right: 0;
-                font-size: 1.25rem;
+                display: none;
             }
 
             .header__search-text {
@@ -1234,19 +1241,22 @@
 
             .footer__main {
                 flex-direction: column;
-                align-items: center;
                 gap: 32px;
+                margin-left: 0;
+                margin-right: 0;
             }
 
             .footer__columns {
                 flex-direction: row;
-                justify-content: center;
                 gap: 32px;
             }
 
             .footer__brand {
                 width: 100%;
-                align-items: center;
+            }
+
+            .footer__logo-text {
+                font-size: 1.75rem;
             }
 
             .footer__description {
@@ -1255,14 +1265,14 @@
 
             .footer__bottom {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
                 gap: 20px;
-                text-align: center;
+                text-align: left;
             }
 
             .footer__legal {
                 flex-wrap: wrap;
-                justify-content: center;
+                justify-content: flex-start;
                 gap: 13px 20px;
             }
         }
@@ -1276,6 +1286,7 @@
 
             .header__inner {
                 height: 56px;
+                margin-left: 0;
             }
 
             .header__logo {
@@ -1286,14 +1297,6 @@
                 font-size: 1.5rem;
             }
 
-            .header__logo-icon {
-                height: 19px;
-            }
-
-            .header__cta {
-                margin-right: 0;
-                font-size: 1.1rem;
-            }
 
             .header__icon {
                 width: 18px;
@@ -1411,23 +1414,22 @@
 
             .footer__main {
                 flex-direction: column;
-                align-items: center;
                 gap: 26px;
+                margin-left: 0;
+                margin-right: 0;
             }
 
             .footer__columns {
                 flex-direction: column;
-                align-items: center;
                 gap: 20px;
             }
 
             .footer__brand {
-                align-items: center;
                 gap: 13px;
             }
 
             .footer__logo-text {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
 
             .footer__description {
@@ -1435,7 +1437,6 @@
             }
 
             .footer__column {
-                align-items: center;
                 gap: 13px;
             }
 
@@ -1444,7 +1445,6 @@
             }
 
             .footer__links {
-                align-items: center;
                 gap: 8px;
             }
 
@@ -1455,8 +1455,8 @@
             .footer__bottom {
                 padding-top: 20px;
                 gap: 13px;
-                align-items: center;
-                text-align: center;
+                align-items: flex-start;
+                text-align: left;
             }
 
             .footer__copyright {
@@ -1558,13 +1558,27 @@
                 <div class="header__inner">
                     <a href="#" class="header__logo">
                         <span class="header__logo-text">ANUMA</span>
-                        <img src="assets/images/anumaicon.png" alt="Anuma" class="header__logo-icon">
                     </a>
+                    <a href="#" class="header__blog-link">Blog</a>
                     <a href="#" class="header__cta">Request Access</a>
+                    <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+                        <span class="header__menu-line"></span>
+                        <span class="header__menu-line"></span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__inner">
+            <nav class="mobile-menu__nav">
+                <a href="#" class="mobile-menu__link">Blog</a>
+                <a href="#" class="mobile-menu__link">Request Access</a>
+            </nav>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1689,6 +1703,26 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.mobile-menu__link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
         // Header scroll effect
         const header = document.getElementById('header');
         const heroSection = document.querySelector('.hero');
