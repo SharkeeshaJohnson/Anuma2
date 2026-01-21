@@ -51,6 +51,21 @@
             background-color: var(--color-bg);
             color: var(--color-text);
             line-height: 1.6;
+            /* Prevent layout shift on mobile when browser chrome hides */
+            overflow-x: hidden;
+        }
+
+        /* Use svh for stable mobile viewport */
+        @supports (height: 100svh) {
+            :root {
+                --vh-unit: 1svh;
+            }
+        }
+
+        @supports not (height: 100svh) {
+            :root {
+                --vh-unit: 1vh;
+            }
         }
 
         /* Container - ensures perfect alignment across all sections */
@@ -417,11 +432,17 @@
         ================================ */
         .hero {
             position: relative;
-            height: calc(92vh - 80px);
+            height: calc(92svh - 80px);
             min-height: 500px;
             margin-top: 80px;
             overflow: hidden;
             border-bottom: 1px solid var(--color-text);
+        }
+
+        @supports not (height: 1svh) {
+            .hero {
+                height: calc(92vh - 80px);
+            }
         }
 
         .hero__video {
@@ -583,9 +604,15 @@
         .feature-slide__image-inner {
             background: var(--color-bg-alt);
             width: 100%;
-            height: 100vh;
+            height: 100svh;
             position: relative;
             overflow: hidden;
+        }
+
+        @supports not (height: 1svh) {
+            .feature-slide__image-inner {
+                height: 100vh;
+            }
         }
 
         .feature-slide__image-inner img {
@@ -600,9 +627,9 @@
             object-position: left;
         }
 
-        /* Second feature card - always left aligned */
+        /* Second feature card - slightly right of center */
         .feature-slide:nth-child(2) .feature-slide__image-inner img {
-            object-position: left;
+            object-position: 35% center;
         }
 
         /* Third feature card - always centered */
@@ -1033,7 +1060,7 @@
             }
 
             .header__logo-icon {
-                height: 48px;
+                height: 34px;
             }
 
             .header__cta {
@@ -1046,9 +1073,15 @@
             }
 
             .hero {
-                height: calc(92vh - 52px);
+                height: calc(92svh - 52px);
                 min-height: 500px;
                 margin-top: 52px;
+            }
+
+            @supports not (height: 1svh) {
+                .hero {
+                    height: calc(92vh - 52px);
+                }
             }
 
             .blog__header {
@@ -1094,7 +1127,13 @@
             }
 
             .feature-slide__image-inner {
-                height: 60vh;
+                height: 60svh;
+            }
+
+            @supports not (height: 1svh) {
+                .feature-slide__image-inner {
+                    height: 60vh;
+                }
             }
 
             .feature-slide__image-inner img {
@@ -1198,7 +1237,7 @@
             }
 
             .header__logo-icon {
-                height: 44px;
+                height: 30px;
             }
 
             .header__cta {
@@ -1216,9 +1255,15 @@
             }
 
             .hero {
-                height: calc(92vh - 56px);
+                height: calc(92svh - 56px);
                 min-height: 450px;
                 margin-top: 56px;
+            }
+
+            @supports not (height: 1svh) {
+                .hero {
+                    height: calc(92vh - 56px);
+                }
             }
 
             .btn {
@@ -1269,7 +1314,13 @@
             }
 
             .feature-slide__image-inner {
-                height: 55vh;
+                height: 55svh;
+            }
+
+            @supports not (height: 1svh) {
+                .feature-slide__image-inner {
+                    height: 55vh;
+                }
             }
 
             .blog__content {
@@ -1386,7 +1437,13 @@
             }
 
             .feature-slide__image-inner {
-                height: 50vh;
+                height: 50svh;
+            }
+
+            @supports not (height: 1svh) {
+                .feature-slide__image-inner {
+                    height: 50vh;
+                }
             }
 
             .blog__content {
