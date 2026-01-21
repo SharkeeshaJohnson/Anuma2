@@ -186,7 +186,7 @@
 
         .header__logo-text {
             font-family: var(--font-family);
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -202,7 +202,7 @@
             left: 0;
             opacity: 0;
             transform: translateX(-10px);
-            height: 64px;
+            height: 40px;
             filter: brightness(0);
             transition: opacity 0.4s var(--transition-smooth),
                         transform 0.4s var(--transition-smooth);
@@ -432,22 +432,33 @@
         ================================ */
         .hero {
             position: relative;
-            height: calc(92svh - 80px);
-            min-height: 500px;
             margin-top: 80px;
-            overflow: hidden;
-            border-bottom: 1px solid var(--color-text);
+            display: flex;
+            flex-direction: column;
         }
 
-        @supports not (height: 1svh) {
-            .hero {
-                height: calc(92vh - 80px);
-            }
+        .hero__tagline {
+            background: var(--color-white);
+            padding: 120px var(--container-padding);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero__tagline-text {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--color-text);
+            line-height: 1.1;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero__video {
             width: 100%;
-            height: 100%;
             background: var(--color-bg-alt);
             position: relative;
             overflow: hidden;
@@ -455,9 +466,8 @@
 
         .hero__video video {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top;
+            height: auto;
+            display: block;
         }
 
         .btn {
@@ -1056,11 +1066,11 @@
             }
 
             .header__logo-text {
-                font-size: 1.25rem;
+                font-size: 1.75rem;
             }
 
             .header__logo-icon {
-                height: 34px;
+                height: 22px;
             }
 
             .header__cta {
@@ -1073,15 +1083,30 @@
             }
 
             .hero {
-                height: calc(92svh - 52px);
-                min-height: 500px;
                 margin-top: 52px;
+                height: calc(100svh - 52px);
+                min-height: 500px;
             }
 
-            @supports not (height: 1svh) {
-                .hero {
-                    height: calc(92vh - 52px);
-                }
+            .hero__tagline {
+                padding: 60px var(--container-padding);
+            }
+
+            .hero__tagline-text {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+                letter-spacing: 0.01em;
+            }
+
+            .hero__video {
+                flex: 1;
+                min-height: 50vh;
+            }
+
+            .hero__video video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
             }
 
             .blog__header {
@@ -1233,11 +1258,11 @@
             }
 
             .header__logo-text {
-                font-size: 1.1rem;
+                font-size: 1.5rem;
             }
 
             .header__logo-icon {
-                height: 30px;
+                height: 19px;
             }
 
             .header__cta {
@@ -1255,15 +1280,30 @@
             }
 
             .hero {
-                height: calc(92svh - 56px);
-                min-height: 450px;
                 margin-top: 56px;
+                height: calc(100svh - 56px);
+                min-height: 450px;
             }
 
-            @supports not (height: 1svh) {
-                .hero {
-                    height: calc(92vh - 56px);
-                }
+            .hero__tagline {
+                padding: 48px var(--container-padding);
+            }
+
+            .hero__tagline-text {
+                font-size: clamp(2rem, 9vw, 3rem);
+                line-height: 1.15;
+            }
+
+            .hero__video {
+                flex: 1;
+                min-height: 45vh;
+            }
+
+            .hero__video video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
             }
 
             .btn {
@@ -1419,6 +1459,27 @@
                 font-size: 1.75rem;
             }
 
+            .hero__tagline {
+                padding: 40px var(--container-padding);
+            }
+
+            .hero__tagline-text {
+                font-size: clamp(1.5rem, 10vw, 2rem);
+                line-height: 1.2;
+            }
+
+            .hero__video {
+                flex: 1;
+                min-height: 35vh;
+            }
+
+            .hero__video video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+            }
+
             .feature-slide:first-child {
                 padding: 0;
             }
@@ -1479,6 +1540,9 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero__tagline">
+            <h1 class="hero__tagline-text">A private space<br>for your intelligence.</h1>
+        </div>
         <div class="hero__video">
             <video autoplay loop muted playsinline>
                 <source src="assets/images/herovideo.mp4" type="video/mp4">
