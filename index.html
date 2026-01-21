@@ -541,15 +541,6 @@
             text-align: center;
             margin: 0 auto;
             padding: 0 12%;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s var(--transition-smooth),
-                        transform 0.8s var(--transition-smooth);
-        }
-
-        .intro__content.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .intro__title {
@@ -1199,6 +1190,10 @@
                 object-position: center;
             }
 
+            .feature-slide:nth-child(1) .feature-slide__image-inner img {
+                object-position: 25% center;
+            }
+
             .feature-slide__description {
                 max-width: 100%;
             }
@@ -1697,14 +1692,12 @@
         // Header scroll effect
         const header = document.getElementById('header');
         const heroSection = document.querySelector('.hero');
-        const introContent = document.querySelector('.intro__content');
         let lastScroll = 0;
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
             const heroHeight = heroSection ? heroSection.offsetHeight : 500;
             const heroScrollThreshold = heroHeight * 0.25; // 25% of hero section
-            const introFadeThreshold = heroHeight * 0.4; // 40% of hero section
 
             // Basic scrolled state (for background)
             if (currentScroll > 50) {
@@ -1718,13 +1711,6 @@
                 header.classList.add('header--scrolled');
             } else {
                 header.classList.remove('header--scrolled');
-            }
-
-            // Intro content fade-in at 40% of hero
-            if (currentScroll > introFadeThreshold) {
-                introContent.classList.add('visible');
-            } else {
-                introContent.classList.remove('visible');
             }
 
             lastScroll = currentScroll;
