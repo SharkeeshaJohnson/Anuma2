@@ -489,6 +489,27 @@
             color: var(--color-white);
         }
 
+        .hero__powered-by {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .hero__powered-by span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero__powered-by img {
+            height: 26px;
+            width: auto;
+        }
+
         .hero__video {
             width: 100%;
             background: var(--color-bg-alt);
@@ -1595,6 +1616,10 @@
                     <span class="hero-line">for your intelligence.</span>
                 </h1>
                 <a href="#" class="hero__cta-btn">Request Access</a>
+                <div class="hero__powered-by">
+                    <span>Powered by</span>
+                    <img src="assets/images/zetachain.png" alt="ZetaChain">
+                </div>
             </div>
         </div>
         <div class="hero__video">
