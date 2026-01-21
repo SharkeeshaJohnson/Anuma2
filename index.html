@@ -165,7 +165,7 @@
         .header__inner {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             height: 80px;
             position: relative;
         }
@@ -180,13 +180,12 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            margin-left: -12%;
             position: relative;
         }
 
         .header__logo-text {
             font-family: var(--font-family);
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 800;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -199,9 +198,9 @@
 
         .header__logo-icon {
             position: absolute;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%) translateX(-10px);
             opacity: 0;
-            transform: translateX(-10px);
             height: 40px;
             filter: brightness(0);
             transition: opacity 0.4s var(--transition-smooth),
@@ -220,29 +219,11 @@
 
         .header.header--scrolled .header__logo-icon {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateX(-50%);
         }
 
         .header__cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: -12%;
-            padding: 0;
-            font-family: var(--font-family);
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            text-decoration: none;
-            background: transparent;
-            color: var(--color-text);
-            border: none;
-            transition: all 0.3s var(--transition-smooth);
-        }
-
-        .header__cta:hover {
-            opacity: 0.6;
+            display: none;
         }
 
         .header__nav {
@@ -438,7 +419,7 @@
         }
 
         .hero__tagline {
-            background: var(--color-white);
+            background: #ECECEC;
             padding: 120px var(--container-padding);
             text-align: center;
             display: flex;
@@ -446,15 +427,51 @@
             justify-content: center;
         }
 
+        .hero__tagline-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .hero__tagline-text {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 600;
-            letter-spacing: 0.02em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto 40px;
+        }
+
+        .hero-line {
+            display: block;
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
             text-transform: uppercase;
             color: var(--color-text);
-            line-height: 1.1;
-            max-width: 1200px;
-            margin: 0 auto;
+            line-height: 1.05;
+        }
+
+        .hero__cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 48px;
+            font-family: var(--font-family);
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--color-text);
+            background: transparent;
+            border: 1px solid var(--color-text);
+            border-radius: 160px;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .hero__cta-btn:hover {
+            background: var(--color-text);
+            color: var(--color-white);
         }
 
         .hero__video {
@@ -536,18 +553,19 @@
         }
 
         .intro__title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            line-height: 1.5;
+            font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.4;
             text-transform: uppercase;
             color: var(--color-text);
             margin-bottom: 32px;
         }
 
         .intro__subtitle {
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem);
             font-weight: 400;
+            letter-spacing: -0.01em;
             line-height: 1.6;
             color: var(--color-text);
             text-transform: uppercase;
@@ -682,17 +700,18 @@
         }
 
         .feature-slide__title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            line-height: 1.5;
+            font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.4;
             text-transform: uppercase;
             color: var(--color-text);
         }
 
         .feature-slide__description {
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem);
             font-weight: 400;
+            letter-spacing: -0.01em;
             line-height: 1.6;
             color: var(--color-text);
             text-transform: uppercase;
@@ -810,41 +829,44 @@
            FOOTER
         ================================ */
         .footer {
-            padding: 80px 0 48px;
+            padding: 64px 0 38px;
             background: #595552;
             color: var(--color-bg);
         }
 
         .footer__main {
             display: flex;
-            justify-content: space-between;
-            padding-bottom: 64px;
-            margin-left: -12%;
-            margin-right: -12%;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 52px;
             border-bottom: 1px solid rgba(250, 249, 247, 0.1);
         }
 
         .footer__columns {
             display: flex;
-            gap: 64px;
+            justify-content: center;
+            gap: 52px;
+            margin-top: 32px;
         }
 
         .footer__brand {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            align-items: center;
+            gap: 20px;
         }
 
         .footer__logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
         }
 
         .footer__logo-mark {
-            width: 32px;
-            height: 32px;
+            width: 26px;
+            height: 26px;
             background: var(--color-bg);
             display: flex;
             align-items: center;
@@ -852,7 +874,7 @@
         }
 
         .footer__logo-text {
-            font-size: 1.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -860,7 +882,7 @@
         }
 
         .footer__description {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             font-weight: 400;
             color: var(--color-bg);
             max-width: 320px;
@@ -870,13 +892,13 @@
 
         .footer__social {
             display: flex;
-            gap: 16px;
-            margin-top: 8px;
+            gap: 13px;
+            margin-top: 6px;
         }
 
         .footer__social-link {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border: 1px solid rgba(250, 249, 247, 0.2);
             display: flex;
             align-items: center;
@@ -892,20 +914,20 @@
         }
 
         .footer__social-link svg {
-            width: 16px;
-            height: 16px;
+            width: 13px;
+            height: 13px;
         }
 
         .footer__column {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
         }
 
         .footer__column-title {
-            font-size: 0.875rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
             text-transform: uppercase;
             color: var(--color-bg);
         }
@@ -913,11 +935,11 @@
         .footer__links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .footer__link {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 400;
             color: var(--color-bg);
             text-decoration: none;
@@ -931,15 +953,15 @@
 
         .footer__bottom {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding-top: 32px;
-            margin-left: -12%;
-            margin-right: -12%;
+            text-align: center;
+            gap: 13px;
+            padding-top: 26px;
         }
 
         .footer__copyright {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 400;
             color: var(--color-bg);
             text-transform: uppercase;
@@ -947,11 +969,11 @@
 
         .footer__legal {
             display: flex;
-            gap: 32px;
+            gap: 26px;
         }
 
         .footer__legal-link {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 400;
             color: var(--color-bg);
             text-decoration: none;
@@ -1092,9 +1114,18 @@
                 padding: 60px var(--container-padding);
             }
 
+            .hero-line {
+                font-size: clamp(2.75rem, 9vw, 4.5rem);
+                letter-spacing: -0.01em;
+            }
+
             .hero__tagline-text {
-                font-size: clamp(2.5rem, 8vw, 4rem);
-                letter-spacing: 0.01em;
+                margin-bottom: 32px;
+            }
+
+            .hero__cta-btn {
+                padding: 17px 38px;
+                font-size: 1.125rem;
             }
 
             .hero__video {
@@ -1203,23 +1234,24 @@
             }
 
             .footer {
-                padding: 64px 0 32px;
+                padding: 52px 0 26px;
             }
 
             .footer__main {
                 flex-direction: column;
-                gap: 40px;
-                margin-left: 0;
-                margin-right: 0;
+                align-items: center;
+                gap: 32px;
             }
 
             .footer__columns {
                 flex-direction: row;
-                gap: 40px;
+                justify-content: center;
+                gap: 32px;
             }
 
             .footer__brand {
                 width: 100%;
+                align-items: center;
             }
 
             .footer__description {
@@ -1228,17 +1260,15 @@
 
             .footer__bottom {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 24px;
-                text-align: left;
-                margin-left: 0;
-                margin-right: 0;
+                align-items: center;
+                gap: 20px;
+                text-align: center;
             }
 
             .footer__legal {
                 flex-wrap: wrap;
-                justify-content: flex-start;
-                gap: 16px 24px;
+                justify-content: center;
+                gap: 13px 20px;
             }
         }
 
@@ -1289,9 +1319,18 @@
                 padding: 48px var(--container-padding);
             }
 
+            .hero-line {
+                font-size: clamp(2.25rem, 10vw, 3.5rem);
+                line-height: 1.1;
+            }
+
             .hero__tagline-text {
-                font-size: clamp(2rem, 9vw, 3rem);
-                line-height: 1.15;
+                margin-bottom: 28px;
+            }
+
+            .hero__cta-btn {
+                padding: 15px 32px;
+                font-size: 1rem;
             }
 
             .hero__video {
@@ -1341,14 +1380,6 @@
                 padding: 40px var(--container-padding);
             }
 
-            .feature-slide__title {
-                font-size: 1.25rem;
-            }
-
-            .feature-slide__description {
-                font-size: 0.875rem;
-            }
-
             .feature-slide__eyebrow {
                 font-size: 0.625rem;
             }
@@ -1380,68 +1411,69 @@
             }
 
             .footer {
-                padding: 48px 0 24px;
+                padding: 38px 0 19px;
             }
 
             .footer__main {
                 flex-direction: column;
-                gap: 32px;
-                margin-left: 0;
-                margin-right: 0;
+                align-items: center;
+                gap: 26px;
             }
 
             .footer__columns {
                 flex-direction: column;
-                gap: 24px;
+                align-items: center;
+                gap: 20px;
             }
 
             .footer__brand {
-                gap: 16px;
+                align-items: center;
+                gap: 13px;
             }
 
             .footer__logo-text {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
 
             .footer__description {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
 
             .footer__column {
-                gap: 16px;
+                align-items: center;
+                gap: 13px;
             }
 
             .footer__column-title {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
 
             .footer__links {
-                gap: 10px;
+                align-items: center;
+                gap: 8px;
             }
 
             .footer__link {
-                font-size: 0.6875rem;
+                font-size: 0.7rem;
             }
 
             .footer__bottom {
-                padding-top: 24px;
-                gap: 16px;
-                margin-left: 0;
-                margin-right: 0;
-                align-items: flex-start;
-                text-align: left;
+                padding-top: 20px;
+                gap: 13px;
+                align-items: center;
+                text-align: center;
             }
 
             .footer__copyright {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
 
             .footer__legal {
-                gap: 12px 20px;
+                gap: 10px 16px;
             }
 
             .footer__legal-link {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
 
             .features__link {
@@ -1463,9 +1495,18 @@
                 padding: 40px var(--container-padding);
             }
 
+            .hero-line {
+                font-size: clamp(1.75rem, 11vw, 2.5rem);
+                line-height: 1.15;
+            }
+
             .hero__tagline-text {
-                font-size: clamp(1.5rem, 10vw, 2rem);
-                line-height: 1.2;
+                margin-bottom: 24px;
+            }
+
+            .hero__cta-btn {
+                padding: 14px 28px;
+                font-size: 0.9375rem;
             }
 
             .hero__video {
@@ -1487,14 +1528,6 @@
             .feature-slide:nth-child(odd) .feature-slide__content,
             .feature-slide:nth-child(even) .feature-slide__content {
                 padding: 32px var(--container-padding);
-            }
-
-            .feature-slide__title {
-                font-size: 1.1rem;
-            }
-
-            .features__title {
-                font-size: 1.5rem;
             }
 
             .feature-slide__image-inner {
@@ -1541,7 +1574,13 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero__tagline">
-            <h1 class="hero__tagline-text">A private space<br>for your intelligence.</h1>
+            <div class="hero__tagline-content">
+                <h1 class="hero__tagline-text">
+                    <span class="hero-line">A private space</span>
+                    <span class="hero-line">for your intelligence.</span>
+                </h1>
+                <a href="#" class="hero__cta-btn">Request Access</a>
+            </div>
         </div>
         <div class="hero__video">
             <video autoplay loop muted playsinline>
@@ -1619,7 +1658,7 @@
                         <span class="footer__logo-text">Anuma</span>
                     </a>
                     <p class="footer__description">
-                        Anuma is a private, multi-model AI chat app where your memory stays with you across models.
+                        Stop starting over in AI.
                     </p>
                 </div>
 
