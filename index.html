@@ -684,9 +684,9 @@
             object-position: 25% center;
         }
 
-        /* Second feature card - slightly right of center */
+        /* Second feature card - centered */
         .feature-slide:nth-child(2) .feature-slide__image-inner img {
-            object-position: 35% center;
+            object-position: center;
         }
 
         /* Third feature card - always centered */
@@ -917,6 +917,26 @@
             max-width: 320px;
             line-height: 1.6;
             text-transform: uppercase;
+        }
+
+        .footer__powered-by {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer__powered-by span {
+            font-size: 0.625rem;
+            font-weight: 400;
+            color: var(--color-bg);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+        }
+
+        .footer__powered-by img {
+            height: 16px;
+            width: auto;
         }
 
         .footer__social {
@@ -1622,10 +1642,6 @@
                     <span class="hero-line">for your intelligence.</span>
                 </h1>
                 <a href="#" class="hero__cta-btn">Request Access</a>
-                <div class="hero__powered-by">
-                    <span>Powered by</span>
-                    <img src="assets/images/zetachain.png" alt="ZetaChain">
-                </div>
             </div>
         </div>
         <div class="hero__video">
@@ -1640,7 +1656,7 @@
         <div class="container">
             <div class="intro__content">
                 <h2 class="intro__title">Anuma is a private, multi-model AI chat app where your memory stays with you across models.</h2>
-                <p class="intro__subtitle">One personal, portable memory layer that works across every leading model (ChatGPT, Gemini, Grok, etc.) and every agent.</p>
+                <p class="intro__subtitle">One personal, unified memory layer that works across every leading model and every agent.</p>
             </div>
         </div>
     </section>
@@ -1658,7 +1674,7 @@
                     </div>
                     <div class="feature-slide__content">
                         <h3 class="feature-slide__title">Private by design</h3>
-                        <p class="feature-slide__description">All data is encrypted and designed to be local-first. We never log, store, or train on user data, mitigating surveillance risk.</p>
+                        <p class="feature-slide__description">Encrypted. Local-first. We don't log, store, or train on your data.</p>
                     </div>
                 </div>
             </article>
@@ -1668,12 +1684,12 @@
                 <div class="feature-slide__inner">
                     <div class="feature-slide__image">
                         <div class="feature-slide__image-inner">
-                            <img src="assets/images/greengirl.png" alt="Personal to you">
+                            <img src="assets/images/thirdone.jpg" alt="Owned by you">
                         </div>
                     </div>
                     <div class="feature-slide__content">
-                        <h3 class="feature-slide__title">Personal to you</h3>
-                        <p class="feature-slide__description">Corporations do not own your memory. It belongs entirely to the user who can inspect, edit, export, add, and delete it at any time.</p>
+                        <h3 class="feature-slide__title">Owned by you</h3>
+                        <p class="feature-slide__description">Corporations do not own your memory. You own it fully, with the ability to inspect, edit, export, add to it, or delete it at any time.</p>
                     </div>
                 </div>
             </article>
@@ -1683,7 +1699,7 @@
                 <div class="feature-slide__inner">
                     <div class="feature-slide__image">
                         <div class="feature-slide__image-inner">
-                            <img src="assets/images/thirdone.jpg" alt="One SDK for AI development">
+                            <img src="assets/images/greengirl.png" alt="One SDK for AI development">
                         </div>
                     </div>
                     <div class="feature-slide__content">
@@ -1706,6 +1722,10 @@
                     <p class="footer__description">
                         Stop starting over in AI.
                     </p>
+                    <div class="footer__powered-by">
+                        <span>Powered by</span>
+                        <img src="assets/images/logo.png" alt="ZetaChain">
+                    </div>
                 </div>
 
                 <div class="footer__columns">
